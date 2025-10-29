@@ -29,11 +29,11 @@ Visit again in 24hours.
 
 These are top-tier opportunities for internships, cash prizes, and recognition. Save this list for the upcoming season!
 # 1. AWS AI Global Hackathon 
-● Organizer: Amazon  
+ Organizer: Amazon  
 ●  
-● Eligibility: Open to Indian students 
-● Opportunities: Cash prizes, potential internship 
-● Dates: October every year(Oct 20th deadline for this year) 
-● Link: [AI hackathon](https://aws-agent-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover&_gl=1*14d4yl1*_gcl_au*MjEyOTgzNTI3OC4xNzYwOTU0NDc1*_ga*MTUyOTk4MTc5NC4xNzYwOTU0NDc1*_ga_0YHJK3Y10M*czE3NjA5NTQ0NzUkbzEkZzEkdDE3NjA5NTQ2MjAkajU0JGwwJGgw)   
-● Description: Annual global programming contest. Top performers may 
-receiveinternships and cash rewards.
+- Eligibility: Open to Indian students 
+- Opportunities: Cash prizes, potential internship 
+- Dates: October every year(Oct 20th deadline for this year) 
+- Link: [AI hackathon](https://aws-agent-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover&_gl=1*14d4yl1*_gcl_au*MjEyOTgzNTI3OC4xNzYwOTU0NDc1*_ga*MTUyOTk4MTc5NC4xNzYwOTU0NDc1*_ga_0YHJK3Y10M*czE3NjA5NTQ0NzUkbzEkZzEkdDE3NjA5NTQ2MjAkajU0JGwwJGgw)   
+- Description: Annual global programming contest. Top performers may 
+- receiveinternships and cash rewards.
