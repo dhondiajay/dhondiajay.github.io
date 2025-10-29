@@ -38,7 +38,7 @@ Save this list so you don’t miss the upcoming season! These events offer cash 
 
 ## 🚀 Featured Hackathons
 
-- **AWS AI Global Hackathon** – [Link](#)  
+- **AWS AI Global Hackathon** – [Link](https://aws-agent-hackathon.devpost.com/?ref_feature=challenge&ref_medium=discover&_gl=1*14d4yl1*_gcl_au*MjEyOTgzNTI3OC4xNzYwOTU0NDc1*_ga*MTUyOTk4MTc5NC4xNzYwOTU0NDc1*_ga_0YHJK3Y10M*czE3NjA5NTQ0NzUkbzEkZzEkdDE3NjA5NTQ2MjAkajU0JGwwJGgw)  
   Organizer: Amazon  
   Eligibility: Open to Indian students  
   Deadline: October 20  
