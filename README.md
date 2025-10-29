@@ -12,3 +12,10 @@ These platforms offer virtual internships for students. If the sites are tempora
 2. **IBM** – [Internships for Students](https://www.amazon.jobs/content/en/career-programs/university/internships-for-students)  
 3. **TCS** – [Micro Internships](https://www.tata.com/careers/programs/tata-global-internships/micro-internships)  
 4. **Oracle** – [Race to Certification 2025](https://education.oracle.com/race-to-certification-2025)
+
+# 🔥 Top GitHub Repositories (Projects + DS + Algo + Public APIs)
+
+- [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)  
+- [Public APIs](https://github.com/public-apis/public-apis)  
+- [SpringBoot FullStack Projects](https://github.com/Urunov/SpringBoot-Projects-FullStack)  
+- [MERN Projects](https://github.com/topics/mern-project)
