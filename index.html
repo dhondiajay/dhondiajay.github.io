@@ -3,47 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Resource Hub - Hackathons & Opportunities</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css">
+    <title>Ajay Kumar's Portfolio</title>
     <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-        .markdown-body {
-            box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 45px;
-        }
-        @media (max-width: 767px) {
-            .markdown-body {
-                padding: 15px;
-            }
+        body { font-family: sans-serif; margin: 20px; }
+        header { text-align: center; padding: 20px; background-color: #f0f0f0; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { display: inline; margin: 0 15px; }
+        main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
+        section { margin-bottom: 40px; }
+        footer { text-align: center; padding: 20px; margin-top: 40px; background-color: #f0f0f0; }
+        /* Style for centering the badge */
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <article class="markdown-body" id="content"></article>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        fetch('README.md')
-            .then(response => response.text())
-            .then(text => {
-                document.getElementById('content').innerHTML = marked.parse(text);
-            });
-    </script>
+    <header>
+        <h1>Welcome to Ajay Kumar's Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Ajay Kumar, a passionate individual focused on cloud security and modern web technologies. I'm constantly learning and building to enhance my skills and contribute to innovative projects.</p>
+            </section>
+
+        <section id="certifications">
+            <h2>My Certifications</h2>
+            <p>Below is one of my verified credentials demonstrating my expertise:</p>
+            <div class="badge-container">
+                <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e4c18393-17f8-4333-b007-cf6c8179e4be" data-share-badge-host="https://www.credly.com"></div>
+                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+            </div>
+            <p>I am actively pursuing more certifications to broaden my knowledge and validate my skills in the ever-evolving tech landscape.</p>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <p>Here you'll find some of the projects I've worked on, showcasing my practical application of skills:</p>
+            <ul>
+                <li><strong>Project Alpha:</strong> A brief description of Project Alpha.</li>
+                <li><strong>Project Beta:</strong> A brief description of Project Beta.</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me via email or connect on LinkedIn!</p>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">Ajay Kumar on LinkedIn</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ajay Kumar</p>
+    </footer>
 </body>
 </html>
