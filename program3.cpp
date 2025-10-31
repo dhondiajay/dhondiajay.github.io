@@ -1,39 +1,43 @@
+
 #include <iostream>
 using namespace std;
+#define MAX 5
 
-struct Node {
-    int data;
-    Node* next;
-    Node(int val) : data(val), next(nullptr) {}
-};
-
-class LinkedQueue {
-    Node *front, *rear;
+class CircularQueue {
+    int arr[MAX]; int front, rear;
 public:
-    LinkedQueue() : front(nullptr), rear(nullptr) {}
+    CircularQueue() : front(-1), rear(-1) {}
     void enqueue(int val) {
-        Node* n = new Node(val);
-        if (!rear) { front = rear = n; } 
-        else { rear->next = n; rear = n; }
+        if ((rear + 1) % MAX == front) cout << "Queue Overflow\n";
+        else {
+            if (front == -1) front = 0;
+            rear = (rear + 1) % MAX; arr[rear] = val;
+        }
     }
     void dequeue() {
-        if (!front) cout << "Queue Underflow\n";
+        if (front == -1) cout << "Queue Underflow\n";
         else {
-            cout << "Dequeued: " << front->data << endl;
-            Node* temp = front; front = front->next; delete temp;
-            if (!front) rear = nullptr;
+            cout << "Dequeued: " << arr[front] << endl;
+            if (front == rear) front = rear = -1;
+            else front = (front + 1) % MAX;
         }
     }
     void display() {
-        Node* curr = front;
-        while (curr) { cout << curr->data << " "; curr = curr->next; }
-        cout << endl;
+        if (front == -1) cout << "Queue is empty\n";
+        else {
+            int i = front;
+            do {
+                cout << arr[i] << " ";
+                i = (i + 1) % MAX;
+            } while (i != (rear + 1) % MAX);
+            cout << endl;
+        }
     }
 };
 
 int main() {
-    LinkedQueue q;
-    q.enqueue(10); q.enqueue(20); q.enqueue(30); q.display();
-    q.dequeue(); q.display();
+    CircularQueue cq;
+    cq.enqueue(10); cq.enqueue(20); cq.enqueue(30); cq.display();
+    cq.dequeue(); cq.display();
     return 0;
 }
