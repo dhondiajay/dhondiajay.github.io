@@ -1,20 +1,272 @@
+<!-- THE NEWS BOT - Full Advanced Version with All Features -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE NEWS BOT</title>
+<style>
+/* GLOBAL THEME VARIABLES */
+:root {
+    --bg-color: #000000;
+    --text-color: #e0e0e0;
+    --accent-color: #00f7ff;
+    --bot-msg-bg: #1a1a1a;
+    --user-msg-bg: #003333;
+    --border-color: #333;
+}
 
-<DOCTYPE html>
-  <html>
-    <head>
-      <title>vyshu</title>
-      <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <form>
-      <h1>Login</h1>
-      <label>Name:</label>
-      <input type="text" name="name">
-        </br>
-      <label>Password:</label>
-    </br>
-      <input type="text" name="password">
-      <button> submit</button>
-      </form>
-    </body>
-  </html>
+/* LIGHT THEME */
+.light-theme {
+    --bg-color: #f2f2f2;
+    --text-color: #000000;
+    --accent-color: #006eff;
+    --bot-msg-bg: #ffffff;
+    --user-msg-bg: #cce5ff;
+    --border-color: #cccccc;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand-title {
+    font-size: 2.3rem;
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+}
+
+/* TICKER */
+.news-ticker-container {
+    background: var(--bot-msg-bg);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ticker-label {
+    background: var(--accent-color);
+    padding: 0 15px;
+    font-weight: bold;
+    color: #000;
+}
+
+#tickerContent {
+    display: inline-block;
+    animation: scroll-left 20s linear infinite;
+    padding-left: 100%;
+}
+
+.ticker-item {
+    padding: 0 30px;
+    color: var(--accent-color);
+    font-family: monospace;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* CHAT AREA */
+.chat-display-area {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    animation: fadeIn 0.25s ease;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background: var(--bot-msg-bg);
+    border-left: 3px solid var(--accent-color);
+}
+
+.user-message {
+    align-self: flex-end;
+    background: var(--user-msg-bg);
+    border-right: 3px solid var(--accent-color);
+}
+
+.typing-dots span {
+    animation: blink 1.4s infinite both;
+}
+
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    50% { opacity: 0.2; }
+}
+
+/* FOOTER */
+.bottom-interaction-dock {
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+    border-top: 1px solid var(--border-color);
+    background: var(--bot-msg-bg);
+}
+
+.input-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: #111;
+}
+
+#botInput {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    resize: none;
+    height: auto;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+#themeToggle {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--accent-color);
+    color: black;
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1 class="brand-title">THE NEWS BOT</h1>
+    <p>AI For Global Events & Current Affairs</p>
+</header>
+
+<div class="news-ticker-container">
+    <div class="ticker-label">LIVE</div>
+    <div id="tickerContent"></div>
+</div>
+
+<main class="chat-display-area" id="chatbox">
+    <div class="message bot-message">Hello! Ask me anything related to current affairs.</div>
+</main>
+
+<footer class="bottom-interaction-dock">
+    <div class="input-box">
+        <textarea id="botInput" rows="1" placeholder="Ask a current affairs question..."></textarea>
+    </div>
+
+    <button id="themeToggle">☀</button>
+</footer>
+
+<script>
+/* MARKET TICKER */
+const tickerData = [
+    "BTC/USD: $62,450.20",
+    "Gold: $2,035.50",
+    "Oil: $82.10",
+    "Election debates heating up globally",
+    "Climate summit in Geneva ongoing"
+];
+const tickerDiv = document.getElementById("tickerContent");
+tickerData.forEach(t => {
+    const span = document.createElement("span");
+    span.className = "ticker-item";
+    span.textContent = t;
+    tickerDiv.appendChild(span);
+});
+
+/* CHAT ENGINE */
+const botInput = document.getElementById("botInput");
+const chatbox = document.getElementById("chatbox");
+
+function addMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+    msg.innerHTML = text;
+    chatbox.appendChild(msg);
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+function showTyping() {
+    const div = document.createElement("div");
+    div.className = "message bot-message typing-dots";
+    div.id = "typing";
+    div.innerHTML = `<span>●</span><span>●</span><span>●</span>`;
+    chatbox.appendChild(div);
+    return div;
+}
+
+const keywords = ["news", "market", "war", "politics", "economy", "update", "global", "current", "president", "election"];
+
+function sendToBot(text) {
+    const lower = text.toLowerCase();
+    const related = keywords.some(k => lower.includes(k));
+
+    const typing = showTyping();
+
+    setTimeout(() => {
+        typing.remove();
+        if (related) addMessage("Simulated live news response: API not connected.", "bot");
+        else addMessage("I can only answer questions about current affairs.", "bot");
+    }, 1200);
+}
+
+botInput.addEventListener("keypress", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        const text = botInput.value.trim();
+        if (text) {
+            addMessage(text, "user");
+            sendToBot(text);
+            botInput.value = "";
+        }
+    }
+});
+
+/* AUTO RESIZE */
+botInput.addEventListener("input", () => {
+    botInput.style.height = "auto";
+    botInput.style.height = botInput.scrollHeight + "px";
+});
+
+/* THEME SWITCH */
+const toggle = document.getElementById("themeToggle");
+toggle.onclick = () => {
+    document.body.classList.toggle("light-theme");
+    toggle.textContent = document.body.classList.contains("light-theme") ? "🌙" : "☀";
+};
+
+</script>
+</body>
+</html>
