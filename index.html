@@ -14,11 +14,6 @@
 <body>
     <header>
         <a href="#" class="logo">D. Ajay Kumar<span style="color: var(--secondary)">.</span></a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -109,8 +104,8 @@
 
                     <div class="cert-card">
                         <div class="cert-img-wrapper">
-                            <img src="WhatsApp Image 2026-02-27 at 12.50.50 AM.jpeg" alt="Certification Snapshot"
-                                loading="lazy">
+                            <img src="WhatsApp Image 2026-02-27 at 12.50.50 AM.jpeg"
+                                alt="Certification Snapshot" loading="lazy">
                         </div>
                         <div class="cert-content">
                             <h3>Web Technologies Bootcamp</h3>
@@ -131,7 +126,7 @@
                     <p>Designed and deployed a scalable cloud architecture enforcing strict zero-trust principles.
                         Automated infrastructure provisioning and integrated end-to-end encryption, significantly
                         reducing vulnerability exposure while guaranteeing system uptime.</p>
-                    <a href="https://github.com/dhondiajay" target="_blank" class="project-link">View Architecture <svg width="16" height="16" viewBox="0 0 24 24"
+                    <a href="#" class="project-link">View Architecture <svg width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -142,7 +137,7 @@
                     <p>Engineered a responsive, dynamic web application utilizing modern frontend tooling. Optimized
                         rendering pathways and application state management, accelerating page load speeds by 40% and
                         driving higher user retention metrics.</p>
-                    <a href="https://github.com/dhondiajay" target="_blank" class="project-link">View Application <svg width="16" height="16" viewBox="0 0 24 24"
+                    <a href="#" class="project-link">View Application <svg width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -221,23 +216,6 @@
                 if (a.getAttribute('href').substring(1) === current) {
                     a.classList.add('active');
                 }
-            });
-        });
-
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('#mobile-menu');
-        const nav = document.querySelector('nav');
-        
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-        
-        // Close menu when a link is clicked
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('active');
             });
         });
     </script>
