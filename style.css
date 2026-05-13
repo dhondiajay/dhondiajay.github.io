@@ -276,8 +276,8 @@ p {
     height: 380px;
     border-radius: 50%;
     padding: 8px;
-    background: linear-gradient(135deg, #ff1a1a, #b30000, transparent);
-    box-shadow: 0 0 30px rgba(255, 26, 26, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, var(--primary), var(--secondary), transparent);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.5);
     animation: float 5s ease-in-out infinite;
     display: flex;
     justify-content: center;
@@ -293,7 +293,7 @@ p {
     right: -15px;
     bottom: -15px;
     border-radius: 50%;
-    border: 2px dashed rgba(255, 26, 26, 0.5);
+    border: 2px dashed rgba(34, 197, 94, 0.5);
     animation: spin 20s linear infinite;
     z-index: -1;
 }
@@ -306,7 +306,7 @@ p {
     right: -30px;
     bottom: -30px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 26, 26, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.2);
     animation: spin 25s linear reverse infinite;
     z-index: -1;
 }
@@ -638,6 +638,37 @@ footer {
     backdrop-filter: blur(10px);
 }
 
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-main);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background-color: var(--primary);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--primary);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     #about {
@@ -665,8 +696,39 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 5, 17, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 99;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
     nav ul {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    nav a {
+        font-size: 1.5rem;
     }
 
     h1 {
